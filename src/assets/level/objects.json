@@ -1,0 +1,10 @@
+{
+  "panel": {
+    "id": "chest",
+    "asset": "chest.png"
+  },
+  "orb": {
+  "id": "orb",
+  "asset": "orb.png"
+  }
+}

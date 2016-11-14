@@ -7,8 +7,16 @@ this.erzatz = this.erzatz||{};
 {
     "use strict";
 
+    /**
+     *
+     * @param {Erzatz.Game} game
+     * @constructor
+     */
     Erzatz.Character = function (game)
     {
+        /**
+         * @type {Erzatz.Game}
+         */
         this.game = game;
         this.state = 'down';
 
@@ -31,9 +39,15 @@ this.erzatz = this.erzatz||{};
 
         };
 
+        /**
+         * @type {createjs.SpriteSheet}
+         */
         this.spriteSheet = new createjs.SpriteSheet(data);
-        this.currentAnimation = new createjs.Sprite(this.spriteSheet, "down");
 
+        /**
+         * @type {createjs.Sprite}
+         */
+        this.currentAnimation = new createjs.Sprite(this.spriteSheet, "down");
 
         this.game.stage.addChild(this.currentAnimation);
 

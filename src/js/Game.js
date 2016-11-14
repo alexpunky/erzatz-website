@@ -8,6 +8,12 @@ this.erzatz = this.erzatz||{};
     "use strict";
 
 
+    /**
+     * @param width
+     * @param height
+     * @param canvas_name
+     * @constructor
+     */
     Erzatz.Game = function (width, height, canvas_name) {
         this.width = width;
         this.height = height;
@@ -27,18 +33,34 @@ this.erzatz = this.erzatz||{};
 
 
         //Initialization
+
+        /**
+         * @type {createjs.Stage}
+         */
         this.stage = new createjs.Stage(canvas_name);
 
+        /**
+         * @type {Erzatz.Game}
+         */
         var game = this;
 
 
+        /**
+         * @type {Erzatz.ResourceManager}
+         */
+        this.resourceManager = new Erzatz.ResourceManager(this, "assets/level/resources");
 
-
-        game.resourceManager = new Erzatz.ResourceManager(this, "assets/level/resources");
-
+        /**
+         * Call initializer then run callbacks
+         */
         game.resourceManager.initialize().done(function () {
             //Add object to game object
+
+            /**
+             * @type {Erzatz.Map}
+             */
             game.map = game.resourceManager.createMap();
+
             game.character = new erzatz.Character(game);
             game.message = new erzatz.Message(game);
 
@@ -185,6 +207,7 @@ this.erzatz = this.erzatz||{};
             $(document).keyup(function (event) {
                 if (event.keyCode == 32) //SPACE RELEASED
                 {
+                    $('.content-overlay').toggleClass('visible');
                     if (game.currentMessage >= game.messages.length) game.currentMessage = 0;
 
                     game.message.drawBubble(game.character.getPosition().x, game.character.getPosition().y, game.messages[game.currentMessage]);
@@ -200,7 +223,7 @@ this.erzatz = this.erzatz||{};
                             activated_object = true;
                         }
                     }
-                }
+            }
 
             });
 

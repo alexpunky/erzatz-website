@@ -55,6 +55,10 @@ this.erzatz = this.erzatz||{};
             }
         };
 
+        /**
+         *
+         * @returns {Erzatz.Map}
+         */
         this.createMap = function()
         {
             if(this.map !== null && typeof this.map !== 'undefined')

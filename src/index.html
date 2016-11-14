@@ -40,6 +40,24 @@
             background-color: red;
         }
 
+        .content-overlay {
+            position: absolute;
+            background-color: white;
+            z-index:2;
+            top: 50%;
+            left:50%;
+            bottom:50%;
+            right:50%;
+            transition:all 2s ease-in-out;
+        }
+
+        .content-overlay.visible {
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+
+        }
 
     </style>
     <style type="text/css">
@@ -74,9 +92,9 @@
     this website is only viewable in landscape mode
 </div>
     <!-- build:js js/vendor.js -->
-    <script src="../bower_components/EaselJS/lib/easeljs-0.8.1.min.js"></script>
-    <script src="../bower_components/SoundJS/lib/soundjs-0.6.1.min.js"></script>
-    <script src="../bower_components/PreloadJS/lib/preloadjs-0.6.1.min.js"></script>
+    <script src="../bower_components/EaselJS/lib/easeljs-0.8.2.min.js"></script>
+    <script src="../bower_components/SoundJS/lib/soundjs-0.6.2.min.js"></script>
+    <script src="../bower_components/PreloadJS/lib/preloadjs-0.6.2.min.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/keymaster/keymaster.js"></script>
     <!-- endbuild -->
@@ -101,6 +119,8 @@
         });
     </script>
 
-
+    <div class="content-overlay">
+        BLA
+    </div>
 </body>
 </html>

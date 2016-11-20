@@ -70,6 +70,20 @@ this.erzatz = this.erzatz||{};
             });
             createjs.Ticker.setFPS(30);
 
+            $('.content-overlay').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+                function(e) {
+                    if($(this).hasClass('visible')) {
+                        $(this).find('.content-wrapper').addClass('visible');
+                    }
+                });
+
+            $('.content-wrapper').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+                function(e) {
+                    if(!$(this).hasClass('visible')) {
+                        $('.content-overlay').removeClass('visible');
+                    }
+                });
+
             /**
              * Update method of the game loop
              * @param event
@@ -207,7 +221,12 @@ this.erzatz = this.erzatz||{};
             $(document).keyup(function (event) {
                 if (event.keyCode == 32) //SPACE RELEASED
                 {
-                    $('.content-overlay').toggleClass('visible');
+                    if(!$('.content-overlay').hasClass('visible')) {
+                        $('.content-overlay').toggleClass('visible');
+                    }
+                    else {
+                        $('.content-wrapper').removeClass('visible');
+                    }
                     if (game.currentMessage >= game.messages.length) game.currentMessage = 0;
 
                     game.message.drawBubble(game.character.getPosition().x, game.character.getPosition().y, game.messages[game.currentMessage]);

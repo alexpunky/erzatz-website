@@ -45,10 +45,10 @@ this.erzatz = this.erzatz||{};
             return $.when(promise_objects, promise_map);
         };
 
-        this.createObject = function(id, message, x, y)
+        this.createObject = function(id, message, uri, x, y)
         {
             if(this.objects[id] !== null && this.objects[id] !== 'undefined') {
-                return new Erzatz.Object(this.game, this.objects[id].asset, this.objects[id].id, message, x ,y);
+                return new Erzatz.Object(this.game, this.objects[id].asset, this.objects[id].id, message, uri, x ,y);
             }
             else {
                 return null;

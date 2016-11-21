@@ -63,26 +63,13 @@ this.erzatz = this.erzatz||{};
 
             game.character = new erzatz.Character(game);
             game.message = new erzatz.Message(game);
+            game.overlay = new erzatz.Overlay();
 
 
             createjs.Ticker.addEventListener("tick", function (event) {
                 game.update(event);
             });
             createjs.Ticker.setFPS(30);
-
-            $('.content-overlay').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-                function(e) {
-                    if($(this).hasClass('visible')) {
-                        $(this).find('.content-wrapper').addClass('visible');
-                    }
-                });
-
-            $('.content-wrapper').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-                function(e) {
-                    if(!$(this).hasClass('visible')) {
-                        $('.content-overlay').removeClass('visible');
-                    }
-                });
 
             /**
              * Update method of the game loop
@@ -221,12 +208,13 @@ this.erzatz = this.erzatz||{};
             $(document).keyup(function (event) {
                 if (event.keyCode == 32) //SPACE RELEASED
                 {
-                    if(!$('.content-overlay').hasClass('visible')) {
-                        $('.content-overlay').toggleClass('visible');
+                    if(game.overlay.isOpen()) {
+                        game.overlay.open();
                     }
                     else {
-                        $('.content-wrapper').removeClass('visible');
+                        game.overlay.close();
                     }
+
                     if (game.currentMessage >= game.messages.length) game.currentMessage = 0;
 
                     game.message.drawBubble(game.character.getPosition().x, game.character.getPosition().y, game.messages[game.currentMessage]);

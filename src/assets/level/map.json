@@ -36,8 +36,8 @@
         "cell14": 14
     },
     "objects": [
-        { "x": 200, "y": 40, "id": "chest", "message": "Oh my god you have activated the chest" },
-        { "x": 400, "y": 40, "id": "chest", "message": "My precious chest" },
+        { "x": 200, "y": 40, "id": "chest", "message": "Oh my god you have activated the chest", "uri": "presentation.html" },
+        { "x": 400, "y": 40, "id": "chest", "message": "My precious chest", "uri": "about.html" },
         { "x": 600, "y": 40, "id": "chest", "message": "Hellooooooooo" }
     ],
     "width": 25,

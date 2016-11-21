@@ -59,7 +59,7 @@ this.erzatz = this.erzatz||{};
             //Object management
             for(var i = 0; i < datas.objects.length; i++)
             {
-                this.objects.push(game.resourceManager.createObject(datas.objects[i].id, datas.objects[i].message, datas.objects[i].x, datas.objects[i].y));
+                this.objects.push(game.resourceManager.createObject(datas.objects[i].id, datas.objects[i].message, datas.objects[i].uri, datas.objects[i].x, datas.objects[i].y));
             }
 
             //Add objects onto the stage

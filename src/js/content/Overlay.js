@@ -15,18 +15,18 @@ this.erzatz = this.erzatz||{};
         function openOverlay()
         {
             this.available = false;
-           $('.content-overlay').toggleClass('visible');
+           $('#overlay').toggleClass('visible');
         }
 
         function closeOverlay()
         {
             this.available = false;
-            $('.content-wrapper').removeClass('visible');
+            $('#overlay-wrapper').removeClass('visible');
         }
 
         function isOpen()
         {
-            return $('.content-overlay').hasClass('visible');
+            return $('#overlay').hasClass('visible');
         }
 
         function loadContent(url)
@@ -34,25 +34,25 @@ this.erzatz = this.erzatz||{};
             return $.ajax({
                 url: "assets/content/" + url
             }).done(function(data) {
-                $('#content').html(data);
+                $('#overlay-content').html(data);
             });
         }
 
         //Initialize transition events
-        $('.content-overlay').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+        $('#overlay').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
             function (e) {
                 if ($(this).hasClass('visible')) {
-                    $(this).find('.content-wrapper').addClass('visible');
+                    $(this).find('#overlay-wrapper').addClass('visible');
                 }
                 else {
                     this.available = true;
                 }
             });
 
-        $('.content-wrapper').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+        $('#overlay-wrapper').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
             function (e) {
                 if (!$(this).hasClass('visible')) {
-                    $(this).closest('.content-overlay').removeClass('visible');
+                    $(this).closest('#overlay').removeClass('visible');
                 }
                 else {
                     this.available = true;

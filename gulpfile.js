@@ -3,7 +3,6 @@
  */
 
 var gulp = require('gulp');
-var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var usemin = require('gulp-usemin');
 var concat = require('gulp-concat');
@@ -29,9 +28,9 @@ gulp.task('copy', function() {
     return gulp.src('src/assets/**/*').pipe(gulp.dest('build/assets'));
 });
 
-gulp.task('styles', function() {
+/*gulp.task('styles', function() {
     gulp.src('src/assets/css/*.scss').pipe(sass()).pipe(gulp.dest('src/assets/css'));
-});
+});*/
 
 gulp.task('scripts', function() {
     gulp.src('src/**/*.js')
@@ -67,5 +66,5 @@ gulp.task('usemin_pathfinder', function () {
    gulp.watch('*.scss', ['styles']);
 });*/
 
-gulp.task('default', ['styles', 'usemin', 'copy']);
-gulp.task('pathfinder', ['styles', 'usemin_pathfinder', 'copy']);
+gulp.task('default', ['usemin', 'copy']);
+gulp.task('pathfinder', ['usemin_pathfinder', 'copy']);

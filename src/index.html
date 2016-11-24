@@ -4,84 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title></title>
-    <style>
-        body {
-            padding: 0;
-            margin:0;
-        }
-
-        table {
-            border-collapse: collapse;
-            border: 1px solid black;
-        }
-
-        tr {
-            height: 50px;
-        }
-
-        td {
-            width: 50px;
-            border: 1px solid black;
-        }
-
-        td.start {
-            background-color: red;
-        }
-
-        td.current {
-            background-color: yellow;
-        }
-
-        td.frontier {
-            background-color: blue;
-        }
-
-        td.visited {
-            background-color: red;
-        }
-
-        .content-overlay {
-            position: fixed;
-            background-color: white;
-            top: 0;
-            left:50%;
-            bottom: 0;
-            width:0;
-            height:100%;
-            transition:all 0.4s ease-in-out;
-        }
-
-        .content-overlay.visible {
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-        }
-
-        .content-wrapper
-        {
-            opacity: 0;
-            transition-delay: 0.4s;
-            transition: all 0.4s linear;
-        }
-
-        .content-wrapper.visible
-        {
-            opacity: 1;
-        }
-
-
-    </style>
-    <style type="text/css">
-        #warning-message { display: none; }
-        @media only screen and (orientation:portrait){
-            #wrapper { display:none; }
-            #warning-message { display:block; }
-        }
-        @media only screen and (orientation:landscape){
-            #warning-message { display:none; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/erzatz.css" media="all" />
 </head>
 <body>
 <div id="wrapper">
@@ -90,15 +13,6 @@
     <div class="canvas_container">
         <canvas id="erzatz_canvas" width="1000" height="400"></canvas>
     </div>
-    <h2>Informations</h2>
-    <p>
-        <strong>TOUCH : </strong>
-        <span id="touch">0</span>
-    </p>
-    <p>
-        Free assets downloaded from http://www.lostgarden.com/2006/07/more-free-game-graphics.html
-    </p>
-
 </div>
 <div id="warning-message">
     this website is only viewable in landscape mode
@@ -121,26 +35,24 @@
     <script src="js/game/Object.js"></script>
     <script src="js/game/Gamepad.js"></script>
     <script src="js/content/Overlay.js"></script>
-
     <!-- endbuild -->
+
     <script>
         $(document).ready(function() {
             var game = new erzatz.Game(window.innerWidth, window.innerHeight, "erzatz_canvas");
-
-            // resize the canvas to fill browser window dynamically
-            //window.addEventListener('resize', function() { game.resize() }, false);
         });
     </script>
 
-    <div class="content-overlay">
-        <div class="content-wrapper">
-            <div id="content">Test<br />
+    <!-- Overlay, will contain website pages -->
+    <div id="overlay">
+        <div id="overlay-wrapper">
+            <div id="overlay-content">Test<br />
             De transition<br />
             Ok
                 </div>
             <button id="close-overlay">Close</button>
         </div>
-
     </div>
+    <!-- End overlay -->
 </body>
 </html>

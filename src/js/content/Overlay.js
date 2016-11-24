@@ -26,7 +26,7 @@ this.erzatz = this.erzatz||{};
 
         function isOpen()
         {
-            return !$('.content-overlay').hasClass('visible');
+            return $('.content-overlay').hasClass('visible');
         }
 
         function loadContent(url)
@@ -34,7 +34,7 @@ this.erzatz = this.erzatz||{};
             return $.ajax({
                 url: "assets/content/" + url
             }).done(function(data) {
-                $('.content-wrapper').html(data);
+                $('#content').html(data);
             });
         }
 

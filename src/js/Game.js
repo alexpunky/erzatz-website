@@ -71,6 +71,10 @@ this.erzatz = this.erzatz||{};
             });
             createjs.Ticker.setFPS(30);
 
+            $('#close-overlay').bind('click', function() {
+               game.overlay.close();
+            });
+
             /**
              * Update method of the game loop
              * @param event
@@ -147,6 +151,18 @@ this.erzatz = this.erzatz||{};
                                 game.interpolated_positions.push(interpolated_position);
                             }
                             game.path.shift();
+
+                            if(game.path.length === 0)
+                            {
+                                var activated_object = false;
+                                for(var i = 0; !activated_object && i < game.map.objects.length; i++)
+                                {
+                                    if(game.canBeActivated(game.character, game.map.objects[i])) {
+                                        game.map.objects[i].activate();
+                                        activated_object = true;
+                                    }
+                                }
+                            }
                         }
 
 

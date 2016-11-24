@@ -25,9 +25,14 @@ this.erzatz = this.erzatz||{};
             this.game.message.drawBubble(this.game.character.getPosition().x, this.game.character.getPosition().y, this.message);
             if(this.uri !== null && this.uri !== undefined)
             {
-                this.game.overlay.loadContent(uri).then(function() {
-                    that.game.overlay.open();
-                });
+                if(that.game.overlay.isOpen()) {
+                    that.game.overlay.close();
+                }
+                else {
+                    this.game.overlay.loadContent(uri).then(function () {
+                        that.game.overlay.open();
+                    });
+                }
             }
         };
     }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title></title>
+    <style>
+        body {
+            padding: 0;
+            margin:0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        tr {
+            height: 80px;
+        }
+
+        td {
+            width: 80px;
+            border: 1px solid black;
+        }
+
+        td.start {
+            background-color: powderblue;
+        }
+
+        td.end {
+            background-color: black;
+        }
+
+        td.current {
+            background-color: yellow;
+        }
+
+        td.frontier {
+            background-color: blue;
+        }
+
+        td.visited {
+            background-color: red;
+        }
+
+        td.obstacle {
+            background-color: grey;
+        }
+
+        td.over {
+            background-color: green !important;
+        }
+
+
+    </style>
+</head>
+<body>
+<button id="run">Run</button>
+<input type="radio" name="type" value="start" id="start" checked="" />Place start
+<input type="radio" name="type" value="end" id="end" />Place end
+<input type="radio" name="type" value="obstacle" id="obstacle" />Place obstacle
+
+<!-- build:js_pathfinder js/pathfinder.js -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="js/game/PathFinderHTML.js"></script>
+<!-- endbuild -->
+<script>
+    $(document).ready(function() {
+        var pathfinder = new erzatz.PathFinder(40, 40);
+        pathfinder.prerun();
+        //pathfinder.run();
+    });
+</script>
+
+
+</body>
+</html>

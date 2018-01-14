@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/erzatz.css" media="all" />
+</head>
+<body>
+<div id="wrapper">
+    <!-- your html for your website -->
+
+    <div class="canvas_container">
+        <canvas id="erzatz_canvas" width="1000" height="400"></canvas>
+    </div>
+</div>
+<div id="warning-message">
+    this website is only viewable in landscape mode
+</div>
+    <!-- build:js js/vendor.js -->
+    <script src="../bower_components/EaselJS/lib/easeljs-0.8.2.min.js"></script>
+    <script src="../bower_components/SoundJS/lib/soundjs-0.6.2.min.js"></script>
+    <script src="../bower_components/PreloadJS/lib/preloadjs-0.6.2.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/keymaster/keymaster.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js_app js/app.js -->
+    <script src="js/Game.js"></script>
+    <script src="js/game/Character.js"></script>
+    <script src="js/game/PathFinder.js"></script>
+    <script src="js/game/Map.js"></script>
+    <script src="js/game/Message.js"></script>
+    <script src="js/game/ResourceManager.js"></script>
+    <script src="js/game/Object.js"></script>
+    <script src="js/game/Gamepad.js"></script>
+    <script src="js/content/Overlay.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        $(document).ready(function() {
+            var game = new erzatz.Game(window.innerWidth, window.innerHeight, "erzatz_canvas");
+        });
+    </script>
+
+    <!-- Overlay, will contain website pages -->
+    <div id="overlay">
+        <div id="overlay-wrapper">
+            <div id="overlay-content">Test<br />
+            De transition<br />
+            Ok
+                </div>
+            <button id="close-overlay">Close</button>
+        </div>
+    </div>
+    <!-- End overlay -->
+</body>
+</html>

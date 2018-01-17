@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {GameComponent} from "./game.component";
+import {ResourceManagerService} from "./services/resource-manager.service";
+import {PathfinderService} from "./services/pathfinder.service";
 
 
 
@@ -15,7 +17,7 @@ import {GameComponent} from "./game.component";
   exports: [
     GameComponent
   ],
-  providers: [],
+  providers: [ResourceManagerService, PathfinderService],
   bootstrap: [GameComponent]
 })
 export class GameModule { }
